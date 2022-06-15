@@ -51,12 +51,8 @@ export const {
   /**NOTUSED */
 
   setProperty(node: JSX.Element, name, value) {
-    if (name === "position") {
-      node.position.set(...(value as unknown as Vector3Tuple));
-      return;
-    }
-    if (name === "rotation") {
-      node.rotation.set(...(value as unknown as Vector3Tuple));
+    if (name === "position" || name === "rotation") {
+      node[name].set(...(value as unknown as Vector3Tuple));
       return;
     }
     if (name === "ref") {
