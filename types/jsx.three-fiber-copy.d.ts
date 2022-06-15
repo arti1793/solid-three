@@ -1,6 +1,6 @@
 import { Ref } from "solid-js";
 import * as THREE from "three";
-import { Object3D } from "three";
+import { Object3D, Vector3Tuple } from "three";
 // import { EventHandlers } from "./core/events";
 // import { AttachType } from "./core/renderer";
 
@@ -62,7 +62,7 @@ export type Object3DNode<T, P> = Overwrite<
     position?: Vector3;
     up?: Vector3;
     scale?: Vector3;
-    rotation?: Euler;
+    rotation?: Vector3Tuple;
     matrix?: Matrix4;
     quaternion?: Quaternion;
     layers?: Layers;

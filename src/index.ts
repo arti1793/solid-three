@@ -100,4 +100,6 @@ export {
   Index,
   ErrorBoundary,
   createEffect,
+  createSignal,
+  onCleanup,
 } from "solid-js";
