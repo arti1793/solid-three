@@ -2,7 +2,7 @@ import { createRenderer } from "solid-js/universal";
 import * as Three from "three";
 import { Component as ComponentBase, Ref } from "solid-js";
 import type { JSX } from "../types/jsx.three-fiber-copy";
-import { Vector3Tuple } from "three";
+import { Euler, Vector3, Vector3Tuple } from "three";
 
 export type ComponentProps<
   T extends keyof JSX.IntrinsicElements | ComponentBase<any>
@@ -11,7 +11,12 @@ export type ComponentProps<
   : T extends keyof JSX.IntrinsicElements
   ? JSX.IntrinsicElements[T]
   : {};
-export type Component = <P>(props: P) => JSX.Element;
+export type Component<P = {}> = (props: P) => JSX.Element;
+
+export type ParentProps<P = {}> = P & {
+  children?: JSX.Element;
+};
+export type ParentComponent<P = {}> = Component<ParentProps<P>>;
 
 const capitalize = (str: string) => str[0].toUpperCase() + str.substring(1);
 
@@ -89,17 +94,12 @@ export const {
     );
   },
 });
+
 // Forward Solid control flow
 export {
-  For,
-  Show,
-  Suspense,
-  SuspenseList,
-  Switch,
-  Match,
-  Index,
-  ErrorBoundary,
   createEffect,
   createSignal,
   onCleanup,
+  createRenderEffect,
+  createRoot,
 } from "solid-js";

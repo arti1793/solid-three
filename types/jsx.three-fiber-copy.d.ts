@@ -62,7 +62,7 @@ export type Object3DNode<T, P> = Overwrite<
     position?: Vector3;
     up?: Vector3;
     scale?: Vector3;
-    rotation?: Vector3Tuple;
+    rotation?: Vector3;
     matrix?: Matrix4;
     quaternion?: Quaternion;
     layers?: Layers;
