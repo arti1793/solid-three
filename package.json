@@ -1,0 +1,16 @@
+{
+  "name": "solid-three",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/three": "^0.141.0",
+    "solid-js": "^1.4.4",
+    "three": "^0.141.0"
+  }
+}

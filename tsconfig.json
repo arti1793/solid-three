@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "emitDeclarationOnly": true,
+    "declaration": true,
+    "target": "esnext",
+    "newLine": "LF",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve"
+  },
+  "outDir": "./types",
+  "baseUrl": "src",
+  "include": ["./src"],
+  "exclude": ["node_modules"]
+}
