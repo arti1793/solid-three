@@ -50,9 +50,29 @@ export const {
   replaceText(textNode, value) {},
   /**NOTUSED */
 
-  setProperty(node: JSX.Element, name, value) {
+  setProperty(node: JSX.Element, name: string, value) {
     if (name === "position" || name === "rotation") {
-      node[name].set(...(value as unknown as Vector3Tuple));
+      // if ((value as unknown as Vector3).isVector3 && name === "position") {
+      //   (node[name] as unknown as Vector3).set(
+      //     ...(value as unknown as Vector3).toArray()
+      //   );
+      //   return;
+      // }
+      // if ((value as unknown as Euler).isEuler && name === "rotation") {
+      //   (node[name] as unknown as Euler).fromArray(
+      //     (value as unknown as Euler).toArray()
+      //   );
+      //   return;
+      // }
+      // if ((value as unknown as Vector3).isVector3 && name === "rotation") {
+      //   (node[name] as unknown as Euler).fromArray(
+      //     (value as unknown as Vector3).toArray()
+      //   );
+      //   return;
+      // }
+      (node[name] as Euler | Vector3).set(
+        ...(value as unknown as Vector3Tuple)
+      );
       return;
     }
     if (name === "ref") {
