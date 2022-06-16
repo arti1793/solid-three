@@ -59,7 +59,11 @@ export const {
       (value as unknown as (ref: Ref<JSX.Element>) => void)(node);
       return;
     }
-    (node as unknown as any)[name] = value;
+    try {
+      (node as unknown as any)[name] = value;
+    } catch (err) {
+      console.error(err);
+    }
   },
   insertNode(parent: JSX.Element, node: JSX.Element, anchor) {
     if (!parent || !node) return;
@@ -98,4 +102,5 @@ export {
   onCleanup,
   createRenderEffect,
   createRoot,
+  batch,
 } from "solid-js";
